@@ -1,1 +1,23 @@
 I have installed and configured the AWS CLI on a Red Hat Linux instance because this instance type does not have the AWS CLI pre-installed. Some instance types, such as Amazon Linux, do come pre-installed with the AWS CLI. 
+To create a AWS CLI I have followed few steps
+
+STEP:1
+For Installing AWS cli to Red hat Linux instance:
+
+1) Curl cmd to download the file to current directory: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+2) to unlock the zip file: unzip -u awscliv2.zip 
+3) To install the program sudo command grants the write permission to the directory: sudo ./aws/install
+4)To find Aws cli version : aws --version
+
+STEP:2
+Observe IAM Details in AWS management console:
+ In IAM users find the user access key
+5) To configure the cli to Aws account: aws configure
+after configure file up the following: access key id, secret access key, default region name and output format 
+
+STEP:3
+Observe configuration details through AWS CLI
+6) to find the list of users:aws iam list-users
+7)to list down the policy details: aws iam list-policies --scope Local
+
+8)to download the AWS policy document to a json format IAM document:aws iam get-policy-version --policy-arn arn:aws:iam::038946776283:policy/lab_policy --version-id v1 > lab_policy.json
